@@ -1,0 +1,42 @@
+erDiagram
+  books {
+    bigint     id            PK
+    string     title         "タイトル"
+    bigint     price         "値段"
+    smallint   page_count    "ページ数"
+
+    timestamp  purchace_date "購入日"
+    timestamp  release_date  "発売日"
+
+    references author        FK
+    references status        FK
+    references tag           FK
+  }
+
+  authors {
+    bigint id PK
+    string name "著者名"
+  }
+
+  statuses {
+    bigint id   PK
+    string name "ステータス名"
+  }
+
+  tags {
+    bigint id PK
+    string name "タグ名"
+  }
+
+  date_finished {
+    bigint     id   PK
+    timestamp  date "読了日"
+    string     memo "読書メモ"
+    references book FK
+  }
+
+  books      }o--|| authors       : ""
+  books      }o--|| tags          : ""
+  books      ||--|| date_finished : ""
+  books      ||--|| book_statuses : ""
+
