@@ -1,12 +1,8 @@
-import { useState } from 'react'
-import { Header } from './Header.jsx'
+import { Outlet } from 'react-router';
+import { Layout } from './components/Layout.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <Header />
+    <Outlet />
   )
 }
-
-export default App
